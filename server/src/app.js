@@ -25,14 +25,34 @@ app.use(helmet({
 }));
 
 // CORS Configuration
+const configuredOrigins = (ENV.CLIENT_URL || '')
+  .split(',')
+  .map(url => url.trim().replace(/\/$/, ''))
+  .filter(Boolean);
+
 app.use(cors({
   origin: (origin, callback) => {
-    // Allow localhost or same-origin requests
-    if (!origin || origin.startsWith('http://localhost') || origin.startsWith('http://127.0.0.1') || origin === ENV.CLIENT_URL) {
-      callback(null, true);
-    } else {
-      callback(null, true); // Permissive in dev
+    // Allow requests with no origin (like mobile apps, curl, server-to-server)
+    if (!origin) {
+      return callback(null, true);
     }
+    const cleanOrigin = origin.replace(/\/$/, '');
+    // Allow localhost and local IP addresses for development
+    if (cleanOrigin.startsWith('http://localhost') || cleanOrigin.startsWith('http://127.0.0.1')) {
+      return callback(null, true);
+    }
+    // Allow explicitly configured CLIENT_URL(s)
+    if (configuredOrigins.includes(cleanOrigin)) {
+      return callback(null, true);
+    }
+    // Allow Vercel deployment previews and production domains
+    if (cleanOrigin.endsWith('.vercel.app')) {
+      return callback(null, true);
+    }
+    if (ENV.NODE_ENV === 'development') {
+      return callback(null, true);
+    }
+    return callback(new Error(`CORS policy blocked access from origin: ${origin}`));
   },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
