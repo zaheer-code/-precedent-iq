@@ -1,0 +1,27 @@
+{
+  "name": "precedentiq-workspace",
+  "version": "1.0.0",
+  "description": "PrecedentIQ — AI-Powered Legal Briefing & Cross-Case Intelligence Engine",
+  "private": true,
+  "scripts": {
+    "install:all": "npm install && cd server && npm install && cd ../client && npm install",
+    "dev": "node scripts/dev.js",
+    "start": "cd server && npm start",
+    "client": "cd client && npm run dev",
+    "server": "cd server && npm run dev",
+    "build": "cd client && npm run build",
+    "test": "cd server && npm test",
+    "db:migrate": "node server/src/db/migrate.js",
+    "db:verify": "node server/src/db/verify_db.js"
+  },
+  "keywords": [
+    "legal-tech",
+    "ai",
+    "rag",
+    "pgvector",
+    "gemini",
+    "trial-brief"
+  ],
+  "author": "PrecedentIQ Engineering Team",
+  "license": "ISC"
+}
