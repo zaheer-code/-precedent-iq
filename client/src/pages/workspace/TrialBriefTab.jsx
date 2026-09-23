@@ -112,12 +112,12 @@ export default function TrialBriefTab({ matter, documents = [], onSelectCitation
     <div className="space-y-8">
       
       {/* Brief Configuration Form */}
-      <Card className="p-6 no-print">
+      <Card className="p-6 no-print bg-[#11182D] border-[#1C2640]">
         <form onSubmit={handleGenerate} className="space-y-5">
           
           <div>
-            <h3 className="text-base font-serif font-bold text-slate-100 flex items-center gap-2">
-              <FileSpreadsheet className="w-5 h-5 text-purple-400" />
+            <h3 className="text-base font-bold tracking-tight text-[#F3F4F6] flex items-center gap-2">
+              <FileSpreadsheet className="w-5 h-5 text-[#D9A62E]" />
               Interactive Trial Brief Builder
             </h3>
             <p className="text-xs text-slate-400 mt-0.5">
@@ -146,19 +146,19 @@ export default function TrialBriefTab({ matter, documents = [], onSelectCitation
           </div>
 
           {/* Dynamic Issues List */}
-          <div className="space-y-2 pt-2 border-t border-slate-800/80">
+          <div className="space-y-2 pt-2 border-t border-[#1C2640]">
             <label className="text-xs font-semibold uppercase tracking-wider text-slate-300 block">
               Issue Statements Presented ({issues.length})
             </label>
 
             <div className="space-y-2">
               {issues.map((iss, i) => (
-                <div key={i} className="flex items-center justify-between p-2.5 rounded-xl bg-[#0a0d14] border border-slate-800 text-xs">
-                  <span className="text-slate-200">{i + 1}. {iss}</span>
+                <div key={i} className="flex items-center justify-between p-2.5 rounded-xl bg-[#0E1528] border border-[#1C2640] text-xs">
+                  <span className="text-[#F3F4F6]">{i + 1}. {iss}</span>
                   <button
                     type="button"
                     onClick={() => handleRemoveIssue(i)}
-                    className="p-1 text-slate-500 hover:text-rose-400 ml-2"
+                    className="p-1 text-slate-400 hover:text-rose-400 ml-2"
                   >
                     <Trash2 className="w-4 h-4" />
                   </button>
@@ -178,7 +178,7 @@ export default function TrialBriefTab({ matter, documents = [], onSelectCitation
                     handleAddIssue();
                   }
                 }}
-                className="flex-1 rounded-lg bg-[#0f1420] border border-slate-800 text-xs text-slate-200 px-3 py-2 focus:outline-none focus:border-amber-500/50"
+                className="flex-1 rounded-lg bg-[#0E1528] border border-[#1C2640] text-xs text-[#F3F4F6] px-3 py-2 focus:outline-none focus:border-[#D9A62E]/60"
               />
               <Button variant="secondary" size="sm" onClick={handleAddIssue} icon={Plus}>
                 Add Issue
@@ -203,7 +203,7 @@ export default function TrialBriefTab({ matter, documents = [], onSelectCitation
 
       {/* Loading Spinner */}
       {loading && (
-        <Card className="py-12">
+        <Card className="py-12 bg-[#11182D] border-[#1C2640]">
           <LoadingSpinner text="Synthesizing IRAC brief structure and anchoring evidence citations..." size="lg" />
         </Card>
       )}
@@ -213,9 +213,9 @@ export default function TrialBriefTab({ matter, documents = [], onSelectCitation
         <div className="space-y-6 animate-in fade-in duration-300">
           
           {/* Action Toolbar */}
-          <div className="flex items-center justify-between no-print p-4 bg-[#121722] rounded-xl border border-slate-800">
-            <div className="flex items-center space-x-2 text-xs text-amber-300 font-semibold">
-              <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+          <div className="flex items-center justify-between no-print p-4 bg-[#11182D] rounded-xl border border-[#1C2640]">
+            <div className="flex items-center space-x-2 text-xs text-[#D9A62E] font-semibold">
+              <CheckCircle2 className="w-4 h-4 text-[#D9A62E]" />
               <span>Brief Outline Ready • Fully Editable & Citation-Linked</span>
             </div>
 
@@ -235,18 +235,18 @@ export default function TrialBriefTab({ matter, documents = [], onSelectCitation
           {/* Court Brief Document Container */}
           <div
             id="brief-content-area"
-            className="p-8 md:p-12 rounded-2xl bg-[#0c1017] border border-slate-800 shadow-2xl text-slate-100 font-serif leading-relaxed space-y-8 select-text"
+            className="p-8 md:p-12 rounded-2xl bg-[#0E1528] border border-[#1C2640] shadow-2xl text-[#F3F4F6] leading-relaxed space-y-8 select-text"
           >
             
             {/* Caption Header */}
-            <div className="text-center pb-6 border-b border-slate-800 space-y-2">
-              <p className="text-xs uppercase tracking-widest text-slate-400 font-sans font-semibold">
+            <div className="text-center pb-6 border-b border-[#1C2640] space-y-2">
+              <p className="text-xs uppercase tracking-widest text-slate-400 font-medium">
                 {court} • {jurisdiction}
               </p>
-              <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-amber-200">
+              <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-[#F3F4F6]">
                 {brief.title}
               </h2>
-              <p className="text-xs text-slate-500 font-sans">
+              <p className="text-xs text-slate-400">
                 Matter Ref: {matter.matter_name} {matter.matter_number ? `(#${matter.matter_number})` : ''}
               </p>
             </div>
@@ -254,10 +254,10 @@ export default function TrialBriefTab({ matter, documents = [], onSelectCitation
             {/* Questions Presented */}
             {brief.questionsPresented && brief.questionsPresented.length > 0 && (
               <section className="space-y-3">
-                <h3 className="text-sm font-sans font-bold uppercase tracking-wider text-amber-400 pb-1 border-b border-slate-800">
+                <h3 className="text-sm font-bold uppercase tracking-wider text-[#D9A62E] pb-1 border-b border-[#1C2640]">
                   I. Questions Presented
                 </h3>
-                <ol className="list-decimal list-inside space-y-2 text-sm text-slate-200">
+                <ol className="list-decimal list-inside space-y-2 text-sm text-[#F3F4F6]">
                   {brief.questionsPresented.map((qp, i) => (
                     <li key={i} className="pl-1 leading-normal">{qp}</li>
                   ))}
@@ -268,10 +268,10 @@ export default function TrialBriefTab({ matter, documents = [], onSelectCitation
             {/* Statement of Facts */}
             {brief.facts && brief.facts.length > 0 && (
               <section className="space-y-3">
-                <h3 className="text-sm font-sans font-bold uppercase tracking-wider text-amber-400 pb-1 border-b border-slate-800">
+                <h3 className="text-sm font-bold uppercase tracking-wider text-[#D9A62E] pb-1 border-b border-[#1C2640]">
                   II. Statement of Facts Grounded in Record
                 </h3>
-                <div className="space-y-3 text-sm text-slate-200">
+                <div className="space-y-3 text-sm text-[#F3F4F6]">
                   {brief.facts.map((fact, i) => (
                     <div key={i} className="space-y-1">
                       <p>{fact.statement}</p>
@@ -291,13 +291,13 @@ export default function TrialBriefTab({ matter, documents = [], onSelectCitation
             {/* Applicable Rules */}
             {brief.rules && brief.rules.length > 0 && (
               <section className="space-y-3">
-                <h3 className="text-sm font-sans font-bold uppercase tracking-wider text-amber-400 pb-1 border-b border-slate-800">
+                <h3 className="text-sm font-bold uppercase tracking-wider text-[#D9A62E] pb-1 border-b border-[#1C2640]">
                   III. Applicable Legal & Contractual Authorities
                 </h3>
-                <div className="space-y-3 text-sm text-slate-200">
+                <div className="space-y-3 text-sm text-[#F3F4F6]">
                   {brief.rules.map((r, i) => (
                     <div key={i} className="space-y-1">
-                      <p className="font-semibold text-slate-100">{r.rule}</p>
+                      <p className="font-semibold text-[#F3F4F6]">{r.rule}</p>
                       {r.citations && r.citations.length > 0 && (
                         <div className="flex flex-wrap gap-1.5 pt-0.5 no-print">
                           {r.citations.map((c, ci) => (
@@ -314,26 +314,26 @@ export default function TrialBriefTab({ matter, documents = [], onSelectCitation
             {/* Legal Argument & Analysis */}
             {brief.analysis && brief.analysis.length > 0 && (
               <section className="space-y-6">
-                <h3 className="text-sm font-sans font-bold uppercase tracking-wider text-amber-400 pb-1 border-b border-slate-800">
+                <h3 className="text-sm font-bold uppercase tracking-wider text-[#D9A62E] pb-1 border-b border-[#1C2640]">
                   IV. Argument & Analysis
                 </h3>
                 <div className="space-y-6">
                   {brief.analysis.map((an, i) => (
-                    <div key={i} className="p-5 rounded-xl bg-[#090c12] border border-slate-800 space-y-3">
-                      <h4 className="font-bold text-slate-100 text-sm">
+                    <div key={i} className="p-5 rounded-xl bg-[#0B1020] border border-[#1C2640] space-y-3">
+                      <h4 className="font-bold text-[#F3F4F6] text-sm">
                         {an.issue}
                       </h4>
-                      <p className="text-xs text-slate-200 leading-relaxed">
+                      <p className="text-xs text-[#F3F4F6] leading-relaxed font-normal">
                         {an.argument}
                       </p>
 
                       {an.counterargument && (
-                        <div className="p-3 bg-[#131926] rounded-lg border border-slate-800 text-xs text-slate-300 space-y-1">
-                          <span className="font-sans font-semibold text-amber-400 uppercase text-[10px] block">
+                        <div className="p-3 bg-[#151E36] rounded-lg border border-[#1C2640] text-xs text-slate-300 space-y-1">
+                          <span className="font-semibold text-[#D9A62E] uppercase text-[10px] block">
                             Anticipated Counterargument & Rebuttal:
                           </span>
                           <p><span className="italic">Opposing:</span> {an.counterargument}</p>
-                          <p><span className="font-semibold">Rebuttal:</span> {an.response}</p>
+                          <p><span className="font-semibold text-[#F3F4F6]">Rebuttal:</span> {an.response}</p>
                         </div>
                       )}
 
@@ -353,10 +353,10 @@ export default function TrialBriefTab({ matter, documents = [], onSelectCitation
             {/* Evidence Gaps */}
             {brief.evidenceGaps && brief.evidenceGaps.length > 0 && (
               <section className="space-y-2 no-print">
-                <h3 className="text-xs font-sans font-bold uppercase tracking-wider text-slate-400">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400">
                   V. Evidentiary Incompleteness & Gaps
                 </h3>
-                <ul className="list-disc list-inside text-xs text-slate-400 font-sans space-y-1">
+                <ul className="list-disc list-inside text-xs text-slate-400 space-y-1">
                   {brief.evidenceGaps.map((g, i) => (
                     <li key={i}>{g}</li>
                   ))}
@@ -365,11 +365,11 @@ export default function TrialBriefTab({ matter, documents = [], onSelectCitation
             )}
 
             {/* Conclusion */}
-            <section className="space-y-2 pt-4 border-t border-slate-800">
-              <h3 className="text-sm font-sans font-bold uppercase tracking-wider text-amber-400">
+            <section className="space-y-2 pt-4 border-t border-[#1C2640]">
+              <h3 className="text-sm font-bold uppercase tracking-wider text-[#D9A62E]">
                 VI. Conclusion & Prayer for Relief
               </h3>
-              <p className="text-xs text-slate-200 leading-relaxed">
+              <p className="text-xs text-[#F3F4F6] leading-relaxed">
                 {brief.conclusion}
               </p>
             </section>

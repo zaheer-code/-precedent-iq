@@ -86,13 +86,13 @@ export default function ResearchTab({ matter, documents = [], onSelectCitation }
     <div className="space-y-8">
       
       {/* Research Query Card */}
-      <Card className="p-6">
+      <Card className="p-6 bg-[#11182D] border-[#1C2640]">
         <form onSubmit={handleRunResearch} className="space-y-5">
           
           <div className="flex items-center justify-between">
             <div>
-              <h3 className="text-base font-serif font-bold text-slate-100 flex items-center gap-2">
-                <Search className="w-5 h-5 text-amber-400" />
+              <h3 className="text-base font-bold tracking-tight text-[#F3F4F6] flex items-center gap-2">
+                <Search className="w-5 h-5 text-[#D9A62E]" />
                 Zero-Hallucination Legal Research Engine
               </h3>
               <p className="text-xs text-slate-400 mt-0.5">
@@ -118,13 +118,13 @@ export default function ResearchTab({ matter, documents = [], onSelectCitation }
 
           {/* Quick Prompts */}
           <div className="flex flex-wrap items-center gap-2 text-xs">
-            <span className="text-slate-500 font-semibold uppercase text-[10px]">Suggested:</span>
+            <span className="text-slate-400 font-semibold uppercase text-[10px]">Suggested:</span>
             {sampleQueries.map((sq, i) => (
               <button
                 key={i}
                 type="button"
                 onClick={() => setQueryText(sq)}
-                className="px-2.5 py-1 rounded-lg bg-[#141a28] hover:bg-[#1a2336] border border-slate-800 text-slate-300 hover:text-amber-300 text-[11px] transition-colors"
+                className="px-2.5 py-1 rounded-lg bg-[#0E1528] hover:bg-[#151E36] border border-[#1C2640] text-slate-300 hover:text-[#D9A62E] text-[11px] transition-colors"
               >
                 "{sq}"
               </button>
@@ -132,7 +132,7 @@ export default function ResearchTab({ matter, documents = [], onSelectCitation }
           </div>
 
           {/* Configuration Controls */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2 border-t border-slate-800/80">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2 border-t border-[#1C2640]">
             <Select
               label="Analysis Framework"
               value={analysisType}
@@ -162,14 +162,14 @@ export default function ResearchTab({ matter, documents = [], onSelectCitation }
                   <button
                     type="button"
                     onClick={() => setSelectedDocIds([])}
-                    className="text-amber-400 hover:underline lowercase font-normal"
+                    className="text-[#D9A62E] hover:underline lowercase font-normal"
                   >
                     clear ({selectedDocIds.length} selected)
                   </button>
                 )}
               </label>
               
-              <div className="flex flex-wrap gap-2 max-h-32 overflow-y-auto p-2 bg-[#090c12] rounded-xl border border-slate-800">
+              <div className="flex flex-wrap gap-2 max-h-32 overflow-y-auto p-2 bg-[#0B1020] rounded-xl border border-[#1C2640]">
                 {documents.map((doc) => {
                   const isSelected = selectedDocIds.includes(doc.id);
                   return (
@@ -179,8 +179,8 @@ export default function ResearchTab({ matter, documents = [], onSelectCitation }
                       onClick={() => handleToggleDoc(doc.id)}
                       className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs transition-all ${
                         isSelected
-                          ? 'bg-amber-500/20 text-amber-200 border border-amber-500/40 font-medium'
-                          : 'bg-[#121622] text-slate-400 border border-slate-800 hover:text-slate-200'
+                          ? 'bg-[#D9A62E]/15 text-[#D9A62E] border border-[#D9A62E]/35 font-medium'
+                          : 'bg-[#0E1528] text-slate-400 border border-[#1C2640] hover:text-[#F3F4F6]'
                       }`}
                     >
                       <FileText className="w-3 h-3" />
@@ -209,7 +209,7 @@ export default function ResearchTab({ matter, documents = [], onSelectCitation }
 
       {/* Loading State */}
       {loading && (
-        <Card className="py-12">
+        <Card className="py-12 bg-[#11182D] border-[#1C2640]">
           <LoadingSpinner text="Retrieving vector similarities & cross-checking citations in pgvector..." size="lg" />
         </Card>
       )}
@@ -219,10 +219,10 @@ export default function ResearchTab({ matter, documents = [], onSelectCitation }
         <div className="space-y-6 animate-in fade-in duration-300">
           
           {/* Main Answer Card */}
-          <Card className="p-6 border-amber-500/30 bg-[#121724]">
-            <div className="flex items-center justify-between pb-4 mb-4 border-b border-slate-800">
-              <h3 className="text-base font-serif font-bold text-amber-200 flex items-center gap-2">
-                <Sparkles className="w-5 h-5 text-amber-400" />
+          <Card className="p-6 border-[#D9A62E]/35 bg-[#11182D]">
+            <div className="flex items-center justify-between pb-4 mb-4 border-b border-[#1C2640]">
+              <h3 className="text-base font-bold text-[#D9A62E] flex items-center gap-2">
+                <Sparkles className="w-5 h-5 text-[#D9A62E]" />
                 Grounded Legal Synthesis
               </h3>
               <Badge
@@ -233,7 +233,7 @@ export default function ResearchTab({ matter, documents = [], onSelectCitation }
               </Badge>
             </div>
 
-            <div className="text-sm font-serif text-slate-100 leading-relaxed whitespace-pre-wrap select-text">
+            <div className="text-sm font-normal text-[#F3F4F6] leading-relaxed whitespace-pre-wrap select-text">
               {result.answer}
             </div>
           </Card>
@@ -241,28 +241,28 @@ export default function ResearchTab({ matter, documents = [], onSelectCitation }
           {/* Structured Findings & Claims with Citation Badges */}
           {result.findings && result.findings.length > 0 && (
             <div className="space-y-4">
-              <h3 className="text-sm font-serif font-bold text-slate-100 flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-amber-400" />
+              <h3 className="text-sm font-bold tracking-tight text-[#F3F4F6] flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-[#D9A62E]" />
                 Substantive Findings & Grounded Citations ({result.findings.length})
               </h3>
 
               <div className="grid grid-cols-1 gap-4">
                 {result.findings.map((f, idx) => (
-                  <Card key={idx} className="space-y-3 p-5 bg-[#0f1420]">
+                  <Card key={idx} className="space-y-3 p-5 bg-[#0E1528] border-[#1C2640]">
                     <div className="flex items-start justify-between gap-3">
-                      <h4 className="text-xs font-semibold text-amber-300 uppercase tracking-wider">
+                      <h4 className="text-xs font-semibold text-[#D9A62E] uppercase tracking-wider">
                         {f.claim}
                       </h4>
                     </div>
 
-                    <p className="text-xs text-slate-200 leading-relaxed">
+                    <p className="text-xs text-[#F3F4F6] leading-relaxed">
                       {f.explanation}
                     </p>
 
                     {/* Citations list */}
                     {f.citations && f.citations.length > 0 && (
-                      <div className="pt-2 border-t border-slate-800/80 flex flex-wrap items-center gap-2">
-                        <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-500">
+                      <div className="pt-2 border-t border-[#1C2640] flex flex-wrap items-center gap-2">
+                        <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-400">
                           Source Citations:
                         </span>
                         {f.citations.map((cit, cIdx) => (
@@ -282,12 +282,12 @@ export default function ResearchTab({ matter, documents = [], onSelectCitation }
 
           {/* Conflicting Evidence Box */}
           {result.conflicts && result.conflicts.length > 0 && (
-            <Card className="p-5 border-amber-500/40 bg-amber-950/20 space-y-2">
-              <h4 className="text-xs font-bold text-amber-300 uppercase tracking-wider flex items-center gap-2">
-                <AlertCircle className="w-4 h-4 text-amber-400" />
+            <Card className="p-5 border-[#D9A62E]/35 bg-[#151E36] space-y-2">
+              <h4 className="text-xs font-bold text-[#D9A62E] uppercase tracking-wider flex items-center gap-2">
+                <AlertCircle className="w-4 h-4 text-[#D9A62E]" />
                 Conflicting Evidence Detected in Case Record
               </h4>
-              <ul className="list-disc list-inside text-xs text-amber-100/90 space-y-1 pl-1">
+              <ul className="list-disc list-inside text-xs text-[#F3F4F6] space-y-1 pl-1">
                 {result.conflicts.map((conf, i) => (
                   <li key={i}>{typeof conf === 'string' ? conf : JSON.stringify(conf)}</li>
                 ))}
@@ -297,7 +297,7 @@ export default function ResearchTab({ matter, documents = [], onSelectCitation }
 
           {/* Evidence Gaps Box */}
           {result.evidenceGaps && result.evidenceGaps.length > 0 && (
-            <Card className="p-5 border-slate-800 bg-[#0c1017] space-y-2">
+            <Card className="p-5 border-[#1C2640] bg-[#0E1528] space-y-2">
               <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider flex items-center gap-2">
                 <HelpCircle className="w-4 h-4 text-slate-400" />
                 Documentary Evidence Gaps & Missing Record Information
@@ -316,7 +316,7 @@ export default function ResearchTab({ matter, documents = [], onSelectCitation }
               <button
                 type="button"
                 onClick={() => setShowRawEvidence(!showRawEvidence)}
-                className="flex items-center gap-2 text-xs font-semibold text-slate-400 hover:text-amber-300 transition-colors"
+                className="flex items-center gap-2 text-xs font-semibold text-slate-400 hover:text-[#D9A62E] transition-colors"
               >
                 {showRawEvidence ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
                 {showRawEvidence ? 'Hide' : 'Inspect'} Retrieved Vector Evidence ({result.retrievedEvidence.length} chunks)
@@ -329,17 +329,17 @@ export default function ResearchTab({ matter, documents = [], onSelectCitation }
                       key={idx}
                       hover
                       onClick={() => onSelectCitation && onSelectCitation(chunk)}
-                      className="p-4 bg-[#090c12] border-slate-800 text-xs space-y-2"
+                      className="p-4 bg-[#0E1528] border-[#1C2640] text-xs space-y-2"
                     >
                       <div className="flex items-center justify-between text-[11px]">
-                        <span className="font-semibold text-amber-300">
+                        <span className="font-semibold text-[#D9A62E]">
                           {chunk.documentName} • Page {chunk.pageNumber}
                         </span>
-                        <span className="font-mono text-emerald-400">
+                        <span className="font-medium text-slate-400">
                           Similarity: {(chunk.similarityScore * 100).toFixed(1)}%
                         </span>
                       </div>
-                      <p className="text-slate-300 font-serif line-clamp-3 leading-relaxed">
+                      <p className="text-slate-300 font-normal line-clamp-3 leading-relaxed">
                         "{chunk.content}"
                       </p>
                     </Card>

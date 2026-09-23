@@ -8,24 +8,26 @@ export default {
     extend: {
       colors: {
         legal: {
-          dark: '#0a0d14',
-          card: '#121722',
-          cardBorder: '#1e2638',
-          accent: '#d4af37', // Luxury Warm Gold
-          accentHover: '#e5c07b',
-          navy: '#1a243b',
-          navyHover: '#223050',
-          slate: '#64748b',
-          muted: '#94a3b8',
-          light: '#f8fafc',
-          success: '#10b981',
-          warning: '#f59e0b',
-          danger: '#ef4444'
+          dark: '#0B1020',          // Color 1: Deep Midnight Navy
+          base: '#0E1528',
+          card: '#11182D',
+          cardBorder: '#1C2640',
+          cardBorderHover: '#2A3B60',
+          accent: '#D9A62E',        // Color 2: Warm Legal Gold (Primary Accent)
+          accentHover: '#E5B645',
+          accentActive: '#C49223',
+          accentMuted: 'rgba(217, 166, 46, 0.12)',
+          accentBorder: 'rgba(217, 166, 46, 0.35)',
+          navy: '#151E36',
+          navyHover: '#1C2848',
+          light: '#F3F4F6',         // Color 3: Soft Ivory White (Primary Text)
+          muted: '#9CA3AF',
+          slate: '#6B7280',
+          subtle: '#374151'
         }
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        serif: ['Cinzel', 'Georgia', 'serif']
+        sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', '-apple-system', 'sans-serif']
       }
     },
   },

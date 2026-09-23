@@ -107,7 +107,7 @@ export default function MatterWorkspace() {
       <div className="space-y-6">
         
         {/* Workspace Top Navigation Tabs Bar */}
-        <div className="flex items-center space-x-1 border-b border-slate-800/80 pb-px overflow-x-auto no-print">
+        <div className="flex items-center space-x-1 border-b border-[#1C2640] pb-px overflow-x-auto no-print">
           {tabs.map((t) => {
             const Icon = t.icon;
             const isActive = activeTab === t.id;
@@ -117,11 +117,11 @@ export default function MatterWorkspace() {
                 to={t.path}
                 className={`flex items-center gap-2 px-4 py-2.5 text-xs font-semibold rounded-t-xl transition-all border-t border-x whitespace-nowrap ${
                   isActive
-                    ? 'bg-[#121722] text-amber-300 border-slate-700/80 border-b-transparent shadow-lg'
-                    : 'text-slate-400 hover:text-slate-200 border-transparent hover:bg-white/5'
+                    ? 'bg-[#11182D] text-[#D9A62E] border-[#1C2640] border-b-transparent shadow-lg'
+                    : 'text-slate-400 hover:text-[#F3F4F6] border-transparent hover:bg-[#151E36]/40'
                 }`}
               >
-                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-amber-400' : 'text-slate-500'}`} />
+                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-[#D9A62E]' : 'text-slate-400'}`} />
                 <span>{t.label}</span>
               </Link>
             );

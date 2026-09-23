@@ -51,18 +51,18 @@ export default function LandingPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#07090e] text-slate-100 flex flex-col selection:bg-amber-500/30 selection:text-amber-200">
+    <div className="min-h-screen bg-[#0B1020] text-[#F3F4F6] flex flex-col selection:bg-[#D9A62E]/30 selection:text-[#F3F4F6]">
       
       {/* Navigation Header */}
-      <header className="border-b border-slate-800/80 bg-[#0a0d14]/80 backdrop-blur-md sticky top-0 z-50">
+      <header className="border-b border-[#1C2640] bg-[#0E1528]/90 backdrop-blur-md sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <div className="p-2 bg-gradient-to-br from-amber-400 to-amber-600 rounded-xl shadow-lg shadow-amber-500/20 text-slate-950">
+            <div className="p-2.5 bg-[#D9A62E] rounded-xl shadow-lg shadow-[#D9A62E]/15 text-[#0B1020]">
               <Scale className="w-6 h-6 stroke-[2.5]" />
             </div>
             <div>
-              <span className="font-serif font-bold text-xl tracking-wider bg-gradient-to-r from-amber-200 via-amber-100 to-amber-400 bg-clip-text text-transparent">
-                PRECEDENT<span className="font-sans font-black text-amber-400">IQ</span>
+              <span className="font-bold text-xl tracking-tight text-[#F3F4F6]">
+                PRECEDENT<span className="font-bold text-[#D9A62E]">IQ</span>
               </span>
               <span className="block text-[10px] font-semibold uppercase tracking-widest text-slate-400">
                 Legal Intelligence Engine
@@ -71,7 +71,7 @@ export default function LandingPage() {
           </div>
 
           <div className="flex items-center space-x-4">
-            <Link to="/login" className="text-sm font-medium text-slate-300 hover:text-white transition-colors">
+            <Link to="/login" className="text-sm font-medium text-slate-300 hover:text-[#F3F4F6] transition-colors">
               Sign In
             </Link>
             <Link to="/register">
@@ -86,18 +86,18 @@ export default function LandingPage() {
       {/* Hero Section */}
       <section className="relative pt-20 pb-24 px-6 overflow-hidden">
         {/* Glow backdrop */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-amber-500/10 blur-[130px] rounded-full pointer-events-none" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-[#D9A62E]/5 blur-[130px] rounded-full pointer-events-none" />
         
         <div className="max-w-5xl mx-auto text-center relative z-10 space-y-8">
           
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-semibold uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#D9A62E]/15 border border-[#D9A62E]/35 text-[#D9A62E] text-xs font-semibold uppercase tracking-wider">
+            <Sparkles className="w-3.5 h-3.5 text-[#D9A62E]" />
             Enterprise Legal Intelligence & RAG
           </div>
 
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold tracking-tight text-slate-100 leading-tight">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-[#F3F4F6] leading-tight">
             Grounded Intelligence for <br />
-            <span className="bg-gradient-to-r from-amber-200 via-amber-400 to-amber-500 bg-clip-text text-transparent">
+            <span className="text-[#D9A62E]">
               High-Stakes Litigation
             </span>
           </h1>
@@ -121,24 +121,24 @@ export default function LandingPage() {
 
           {/* Trust Guarantees */}
           <div className="pt-12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto text-left">
-            <div className="p-4 rounded-xl bg-[#10141e] border border-slate-800">
-              <ShieldCheck className="w-5 h-5 text-emerald-400 mb-2" />
-              <p className="text-xs font-semibold text-slate-200">100% Citation Backed</p>
+            <div className="p-4 rounded-xl bg-[#11182D] border border-[#1C2640]">
+              <ShieldCheck className="w-5 h-5 text-[#D9A62E] mb-2" />
+              <p className="text-xs font-semibold text-[#F3F4F6]">100% Citation Backed</p>
               <p className="text-[11px] text-slate-400 mt-0.5">Every assertion verified against record</p>
             </div>
-            <div className="p-4 rounded-xl bg-[#10141e] border border-slate-800">
-              <Database className="w-5 h-5 text-amber-400 mb-2" />
-              <p className="text-xs font-semibold text-slate-200">pgvector Isolation</p>
+            <div className="p-4 rounded-xl bg-[#11182D] border border-[#1C2640]">
+              <Database className="w-5 h-5 text-[#D9A62E] mb-2" />
+              <p className="text-xs font-semibold text-[#F3F4F6]">pgvector Isolation</p>
               <p className="text-[11px] text-slate-400 mt-0.5">Strict multi-tenant matter barriers</p>
             </div>
-            <div className="p-4 rounded-xl bg-[#10141e] border border-slate-800">
-              <Lock className="w-5 h-5 text-sky-400 mb-2" />
-              <p className="text-xs font-semibold text-slate-200">Confidentiality Guard</p>
+            <div className="p-4 rounded-xl bg-[#11182D] border border-[#1C2640]">
+              <Lock className="w-5 h-5 text-[#D9A62E] mb-2" />
+              <p className="text-xs font-semibold text-[#F3F4F6]">Confidentiality Guard</p>
               <p className="text-[11px] text-slate-400 mt-0.5">Prompt injection defense built-in</p>
             </div>
-            <div className="p-4 rounded-xl bg-[#10141e] border border-slate-800">
-              <BookOpen className="w-5 h-5 text-purple-400 mb-2" />
-              <p className="text-xs font-semibold text-slate-200">Page-Level Accuracy</p>
+            <div className="p-4 rounded-xl bg-[#11182D] border border-[#1C2640]">
+              <BookOpen className="w-5 h-5 text-[#D9A62E] mb-2" />
+              <p className="text-xs font-semibold text-[#F3F4F6]">Page-Level Accuracy</p>
               <p className="text-[11px] text-slate-400 mt-0.5">Direct source jump & quote inspect</p>
             </div>
           </div>
@@ -147,12 +147,12 @@ export default function LandingPage() {
       </section>
 
       {/* Feature Capabilities Grid */}
-      <section className="py-20 px-6 bg-[#0a0d14] border-t border-slate-800/80">
+      <section className="py-20 px-6 bg-[#0B1020] border-t border-[#1C2640]">
         <div className="max-w-7xl mx-auto">
           
           <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <span className="text-xs font-semibold uppercase tracking-wider text-amber-400">Core Capabilities</span>
-            <h2 className="text-3xl font-serif font-bold text-slate-100">
+            <span className="text-xs font-semibold uppercase tracking-wider text-[#D9A62E]">Core Capabilities</span>
+            <h2 className="text-3xl font-bold tracking-tight text-[#F3F4F6]">
               Engineered for Modern Litigation Teams
             </h2>
             <p className="text-sm text-slate-400">
@@ -166,12 +166,12 @@ export default function LandingPage() {
               return (
                 <div
                   key={i}
-                  className="p-6 rounded-2xl bg-[#121722]/90 border border-slate-800 hover:border-amber-500/40 transition-all duration-300 hover:-translate-y-1 group"
+                  className="p-6 rounded-2xl bg-[#11182D] border border-[#1C2640] hover:border-[#D9A62E]/40 transition-all duration-300 hover:-translate-y-1 group"
                 >
-                  <div className="p-3 w-fit bg-amber-500/10 rounded-xl border border-amber-500/20 text-amber-400 mb-4 group-hover:scale-110 transition-transform">
+                  <div className="p-3 w-fit bg-[#151E36] rounded-xl border border-[#1C2640] text-[#D9A62E] mb-4 group-hover:scale-110 transition-transform">
                     <Icon className="w-6 h-6" />
                   </div>
-                  <h3 className="text-base font-semibold text-slate-100 mb-2">{cap.title}</h3>
+                  <h3 className="text-base font-semibold text-[#F3F4F6] mb-2">{cap.title}</h3>
                   <p className="text-xs text-slate-400 leading-relaxed">{cap.description}</p>
                 </div>
               );
@@ -182,11 +182,11 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="mt-auto border-t border-slate-800/80 bg-[#06080c] py-8 px-6 text-center text-xs text-slate-400">
+      <footer className="mt-auto border-t border-[#1C2640] bg-[#0E1528] py-8 px-6 text-center text-xs text-slate-400">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center space-x-2 text-slate-300">
-            <Scale className="w-4 h-4 text-amber-400" />
-            <span className="font-serif font-bold text-amber-200">PrecedentIQ</span>
+            <Scale className="w-4 h-4 text-[#D9A62E]" />
+            <span className="font-bold text-[#F3F4F6]">Precedent<span className="text-[#D9A62E]">IQ</span></span>
             <span>— Legal Briefing & Cross-Case Intelligence</span>
           </div>
           <div>

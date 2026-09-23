@@ -33,14 +33,14 @@ export function Modal({ isOpen, onClose, title, children, maxWidth = 'max-w-2xl'
 
         {/* Modal Dialog */}
         <div
-          className={`relative transform overflow-hidden rounded-2xl bg-[#121722] border border-slate-700/80 text-left shadow-2xl transition-all sm:my-8 w-full ${maxWidth} z-10 animate-in zoom-in-95 duration-200`}
+          className={`relative transform overflow-hidden rounded-2xl bg-[#11182D] border border-[#1C2640] text-left shadow-2xl transition-all sm:my-8 w-full ${maxWidth} z-10 animate-in zoom-in-95 duration-200`}
         >
           {title && (
-            <div className="flex items-center justify-between border-b border-slate-800 px-6 py-4 bg-[#0e131d]">
-              <h3 className="text-lg font-serif font-bold text-amber-200 tracking-wide">{title}</h3>
+            <div className="flex items-center justify-between border-b border-[#1C2640] px-6 py-4 bg-[#0E1528]">
+              <h3 className="text-base font-bold tracking-tight text-[#F3F4F6]">{title}</h3>
               <button
                 onClick={onClose}
-                className="rounded-lg p-1 text-slate-400 hover:bg-slate-800 hover:text-white transition-colors"
+                className="rounded-lg p-1 text-slate-400 hover:bg-[#151E36] hover:text-[#F3F4F6] transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -62,7 +62,7 @@ export function LoadingSpinner({ text = 'Loading intelligence...', size = 'md' }
 
   return (
     <div className="flex flex-col items-center justify-center py-12 space-y-3">
-      <div className={`${sizeClasses[size]} border-2 border-amber-500/20 border-t-amber-400 rounded-full animate-spin`} />
+      <div className={`${sizeClasses[size]} border-2 border-[#D9A62E]/20 border-t-[#D9A62E] rounded-full animate-spin`} />
       {text && <p className="text-xs font-medium text-slate-400 tracking-wider uppercase">{text}</p>}
     </div>
   );
@@ -70,13 +70,13 @@ export function LoadingSpinner({ text = 'Loading intelligence...', size = 'md' }
 
 export function EmptyState({ icon: Icon, title, description, action }) {
   return (
-    <div className="flex flex-col items-center justify-center py-16 px-4 text-center rounded-2xl border border-dashed border-slate-800/80 bg-[#0f1420]/50">
+    <div className="flex flex-col items-center justify-center py-16 px-4 text-center rounded-2xl border border-dashed border-[#1C2640] bg-[#0E1528]/80">
       {Icon && (
-        <div className="p-3 bg-amber-500/10 rounded-2xl border border-amber-500/20 text-amber-300 mb-4">
+        <div className="p-3 bg-[#151E36] rounded-2xl border border-[#1C2640] text-[#D9A62E] mb-4">
           <Icon className="w-8 h-8" />
         </div>
       )}
-      <h3 className="text-base font-semibold text-slate-200">{title}</h3>
+      <h3 className="text-base font-semibold text-[#F3F4F6]">{title}</h3>
       {description && <p className="mt-1 text-sm text-slate-400 max-w-sm">{description}</p>}
       {action && <div className="mt-5">{action}</div>}
     </div>

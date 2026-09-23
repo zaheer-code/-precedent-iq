@@ -63,12 +63,12 @@ export default function ClausesTab({ matter, documents = [], onSelectCitation })
     <div className="space-y-8">
       
       {/* Comparison Form Card */}
-      <Card className="p-6">
+      <Card className="p-6 bg-[#11182D] border-[#1C2640]">
         <form onSubmit={handleCompare} className="space-y-5">
           
           <div>
-            <h3 className="text-base font-serif font-bold text-slate-100 flex items-center gap-2">
-              <GitCompare className="w-5 h-5 text-sky-400" />
+            <h3 className="text-base font-bold tracking-tight text-[#F3F4F6] flex items-center gap-2">
+              <GitCompare className="w-5 h-5 text-[#D9A62E]" />
               Dynamic Clause Comparison Matrix
             </h3>
             <p className="text-xs text-slate-400 mt-0.5">
@@ -77,8 +77,8 @@ export default function ClausesTab({ matter, documents = [], onSelectCitation })
           </div>
 
           {documents.length < 2 ? (
-            <div className="p-4 bg-amber-950/30 border border-amber-500/30 rounded-xl text-xs text-amber-200">
-              <AlertTriangle className="w-4 h-4 text-amber-400 inline mr-2" />
+            <div className="p-4 bg-[#151E36] border border-[#D9A62E]/35 rounded-xl text-xs text-[#D9A62E]">
+              <AlertTriangle className="w-4 h-4 text-[#D9A62E] inline mr-2" />
               You have {documents.length} document(s) uploaded. Please upload at least two documents to this matter to run side-by-side clause comparisons.
             </div>
           ) : (
@@ -127,7 +127,7 @@ export default function ClausesTab({ matter, documents = [], onSelectCitation })
 
       {/* Loading Spinner */}
       {loading && (
-        <Card className="py-12">
+        <Card className="py-12 bg-[#11182D] border-[#1C2640]">
           <LoadingSpinner text="Extracting reciprocal clauses & contrasting legal obligations..." size="lg" />
         </Card>
       )}
@@ -137,12 +137,12 @@ export default function ClausesTab({ matter, documents = [], onSelectCitation })
         <div className="space-y-6 animate-in fade-in duration-300">
           
           {/* Executive Summary */}
-          <Card className="p-6 border-sky-500/30 bg-[#101726]">
-            <h3 className="text-sm font-serif font-bold text-sky-300 uppercase tracking-wider mb-2 flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-sky-400" />
+          <Card className="p-6 border-[#D9A62E]/35 bg-[#151E36]">
+            <h3 className="text-sm font-bold text-[#D9A62E] uppercase tracking-wider mb-2 flex items-center gap-2">
+              <Sparkles className="w-4 h-4 text-[#D9A62E]" />
               Comparative Risk & Material Differences Summary
             </h3>
-            <p className="text-sm font-serif text-slate-100 leading-relaxed">
+            <p className="text-sm text-[#F3F4F6] font-normal leading-relaxed">
               {result.summary}
             </p>
           </Card>
@@ -150,18 +150,18 @@ export default function ClausesTab({ matter, documents = [], onSelectCitation })
           {/* Side-by-Side Comparison Matrix */}
           {result.comparisons && result.comparisons.length > 0 && (
             <div className="space-y-4">
-              <h3 className="text-sm font-serif font-bold text-slate-100 flex items-center gap-2">
-                <GitCompare className="w-4 h-4 text-amber-400" />
+              <h3 className="text-sm font-bold tracking-tight text-[#F3F4F6] flex items-center gap-2">
+                <GitCompare className="w-4 h-4 text-[#D9A62E]" />
                 Side-by-Side Provisions Matrix ({result.comparisons.length})
               </h3>
 
               <div className="space-y-4">
                 {result.comparisons.map((item, idx) => (
-                  <Card key={idx} className="p-5 bg-[#0f1420] border-slate-800 space-y-4">
+                  <Card key={idx} className="p-5 bg-[#0E1528] border-[#1C2640] space-y-4">
                     
                     {/* Topic Header & Conflict Badge */}
-                    <div className="flex items-center justify-between pb-3 border-b border-slate-800">
-                      <h4 className="text-xs font-bold text-amber-300 uppercase tracking-wider">
+                    <div className="flex items-center justify-between pb-3 border-b border-[#1C2640]">
+                      <h4 className="text-xs font-bold text-[#D9A62E] uppercase tracking-wider">
                         {item.topic}
                       </h4>
                       <Badge variant={item.conflict ? 'danger' : 'success'} size="xs">
@@ -173,11 +173,11 @@ export default function ClausesTab({ matter, documents = [], onSelectCitation })
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       
                       {/* Clause A */}
-                      <div className="p-4 rounded-xl bg-[#090c12] border border-slate-800/80 space-y-2">
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-sky-400 block">
+                      <div className="p-4 rounded-xl bg-[#0B1020] border border-[#1C2640] space-y-2">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
                           Document A: {item.clauseA?.citation?.documentName || 'Document A'}
                         </span>
-                        <p className="text-xs text-slate-200 font-serif leading-relaxed">
+                        <p className="text-xs text-[#F3F4F6] font-normal leading-relaxed">
                           "{item.clauseA?.text}"
                         </p>
                         {item.clauseA?.citation && item.clauseA.citation.chunkId && (
@@ -191,11 +191,11 @@ export default function ClausesTab({ matter, documents = [], onSelectCitation })
                       </div>
 
                       {/* Clause B */}
-                      <div className="p-4 rounded-xl bg-[#090c12] border border-slate-800/80 space-y-2">
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-purple-400 block">
+                      <div className="p-4 rounded-xl bg-[#0B1020] border border-[#1C2640] space-y-2">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-[#D9A62E] block">
                           Document B: {item.clauseB?.citation?.documentName || 'Document B'}
                         </span>
-                        <p className="text-xs text-slate-200 font-serif leading-relaxed">
+                        <p className="text-xs text-[#F3F4F6] font-normal leading-relaxed">
                           "{item.clauseB?.text}"
                         </p>
                         {item.clauseB?.citation && item.clauseB.citation.chunkId && (
@@ -212,18 +212,18 @@ export default function ClausesTab({ matter, documents = [], onSelectCitation })
 
                     {/* Difference Analysis & Significance */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2 text-xs">
-                      <div className="p-3 bg-[#141a27] rounded-xl border border-slate-800">
+                      <div className="p-3 bg-[#151E36] rounded-xl border border-[#1C2640]">
                         <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-1">
                           Material Textual Shift:
                         </span>
-                        <p className="text-slate-200">{item.difference}</p>
+                        <p className="text-[#F3F4F6]">{item.difference}</p>
                       </div>
 
-                      <div className="p-3 bg-[#141a27] rounded-xl border border-slate-800">
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-amber-400 block mb-1">
+                      <div className="p-3 bg-[#151E36] rounded-xl border border-[#1C2640]">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-[#D9A62E] block mb-1">
                           Legal Significance & Exposure:
                         </span>
-                        <p className="text-slate-200">{item.significance}</p>
+                        <p className="text-[#F3F4F6]">{item.significance}</p>
                       </div>
                     </div>
 
@@ -236,8 +236,8 @@ export default function ClausesTab({ matter, documents = [], onSelectCitation })
           {/* Ambiguities & Missing Provisions */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {result.ambiguities && result.ambiguities.length > 0 && (
-              <Card className="p-5 border-slate-800 bg-[#0d1017] space-y-2">
-                <h4 className="text-xs font-bold text-amber-400 uppercase tracking-wider flex items-center gap-2">
+              <Card className="p-5 border-[#1C2640] bg-[#0E1528] space-y-2">
+                <h4 className="text-xs font-bold text-[#D9A62E] uppercase tracking-wider flex items-center gap-2">
                   <AlertTriangle className="w-4 h-4" />
                   Identified Ambiguities
                 </h4>
@@ -250,7 +250,7 @@ export default function ClausesTab({ matter, documents = [], onSelectCitation })
             )}
 
             {result.missingProvisions && result.missingProvisions.length > 0 && (
-              <Card className="p-5 border-slate-800 bg-[#0d1017] space-y-2">
+              <Card className="p-5 border-[#1C2640] bg-[#0E1528] space-y-2">
                 <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider flex items-center gap-2">
                   <HelpCircle className="w-4 h-4" />
                   Missing Provisions in Counterpart

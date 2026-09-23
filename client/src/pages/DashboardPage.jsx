@@ -109,10 +109,10 @@ export default function DashboardPage() {
         {/* Welcome Header */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
-            <h1 className="text-2xl lg:text-3xl font-serif font-bold text-slate-100">
+            <h1 className="text-2xl lg:text-3xl font-extrabold tracking-tight text-[#F3F4F6]">
               Intelligence Command Center
             </h1>
-            <p className="text-xs text-slate-400 mt-1">
+            <p className="text-xs text-[#9CA3AF] mt-1">
               Cross-case retrieval, semantic indexing, and grounded analysis dashboard
             </p>
           </div>
@@ -132,44 +132,44 @@ export default function DashboardPage() {
           
           <Card className="flex items-center justify-between" hover>
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">Total Matters</p>
-              <h3 className="text-2xl font-bold font-serif text-slate-100 mt-1">{stats.totalMatters}</h3>
-              <p className="text-[11px] text-amber-400 mt-0.5">Active litigation files</p>
+              <p className="text-[11px] font-semibold uppercase tracking-wider text-[#9CA3AF]">Total Matters</p>
+              <h3 className="text-2xl font-extrabold tracking-tight text-[#F3F4F6] mt-1">{stats.totalMatters}</h3>
+              <p className="text-[11px] text-[#D9A62E] mt-0.5">Active litigation files</p>
             </div>
-            <div className="p-3 bg-amber-500/10 rounded-xl border border-amber-500/20 text-amber-400">
+            <div className="p-3 bg-[#151E36] rounded-xl border border-[#1C2640] text-[#D9A62E]">
               <Briefcase className="w-5 h-5" />
             </div>
           </Card>
 
           <Card className="flex items-center justify-between" hover>
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">Case Documents</p>
-              <h3 className="text-2xl font-bold font-serif text-slate-100 mt-1">{stats.totalDocuments}</h3>
-              <p className="text-[11px] text-sky-400 mt-0.5">PDFs, DOCX & Filings</p>
+              <p className="text-[11px] font-semibold uppercase tracking-wider text-[#9CA3AF]">Case Documents</p>
+              <h3 className="text-2xl font-extrabold tracking-tight text-[#F3F4F6] mt-1">{stats.totalDocuments}</h3>
+              <p className="text-[11px] text-[#9CA3AF] mt-0.5">PDFs, DOCX & Filings</p>
             </div>
-            <div className="p-3 bg-sky-500/10 rounded-xl border border-sky-500/20 text-sky-400">
+            <div className="p-3 bg-[#151E36] rounded-xl border border-[#1C2640] text-[#D9A62E]">
               <FileText className="w-5 h-5" />
             </div>
           </Card>
 
           <Card className="flex items-center justify-between" hover>
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">Indexed Chunks</p>
-              <h3 className="text-2xl font-bold font-serif text-slate-100 mt-1">{stats.totalIndexedChunks}</h3>
-              <p className="text-[11px] text-emerald-400 mt-0.5">768-dim pgvector embeddings</p>
+              <p className="text-[11px] font-semibold uppercase tracking-wider text-[#9CA3AF]">Indexed Chunks</p>
+              <h3 className="text-2xl font-extrabold tracking-tight text-[#F3F4F6] mt-1">{stats.totalIndexedChunks}</h3>
+              <p className="text-[11px] text-[#D9A62E] mt-0.5">768-dim pgvector embeddings</p>
             </div>
-            <div className="p-3 bg-emerald-500/10 rounded-xl border border-emerald-500/20 text-emerald-400">
+            <div className="p-3 bg-[#151E36] rounded-xl border border-[#1C2640] text-[#D9A62E]">
               <Database className="w-5 h-5" />
             </div>
           </Card>
 
           <Card className="flex items-center justify-between" hover>
             <div>
-              <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-400">Pipeline Ingestion</p>
-              <h3 className="text-2xl font-bold font-serif text-slate-100 mt-1">{stats.documentsProcessing}</h3>
-              <p className="text-[11px] text-slate-400 mt-0.5">In queue / processing</p>
+              <p className="text-[11px] font-semibold uppercase tracking-wider text-[#9CA3AF]">Pipeline Ingestion</p>
+              <h3 className="text-2xl font-extrabold tracking-tight text-[#F3F4F6] mt-1">{stats.documentsProcessing}</h3>
+              <p className="text-[11px] text-[#9CA3AF] mt-0.5">In queue / processing</p>
             </div>
-            <div className="p-3 bg-purple-500/10 rounded-xl border border-purple-500/20 text-purple-400">
+            <div className="p-3 bg-[#151E36] rounded-xl border border-[#1C2640] text-[#D9A62E]">
               <Clock className="w-5 h-5" />
             </div>
           </Card>
@@ -182,11 +182,11 @@ export default function DashboardPage() {
           {/* Left Column (2 spans): Recent Matters */}
           <div className="lg:col-span-2 space-y-4">
             <div className="flex items-center justify-between">
-              <h2 className="text-base font-serif font-bold text-slate-100 flex items-center gap-2">
-                <Briefcase className="w-4 h-4 text-amber-400" />
+              <h2 className="text-base font-bold tracking-tight text-[#F3F4F6] flex items-center gap-2">
+                <Briefcase className="w-4 h-4 text-[#D9A62E]" />
                 Active Matters & Workspaces
               </h2>
-              <Link to="/matters" className="text-xs text-amber-400 hover:text-amber-300 font-medium flex items-center gap-1">
+              <Link to="/matters" className="text-xs text-[#D9A62E] hover:underline font-medium flex items-center gap-1">
                 View All Matters <ChevronRight className="w-3.5 h-3.5" />
               </Link>
             </div>
@@ -205,29 +205,29 @@ export default function DashboardPage() {
                         <Badge variant="gold" size="xs">
                           {m.practice_area || 'General Litigation'}
                         </Badge>
-                        <span className="text-[11px] font-mono text-slate-500">
+                        <span className="text-[11px] font-mono text-[#9CA3AF]">
                           {m.matter_number ? `#${m.matter_number}` : ''}
                         </span>
                       </div>
-                      <h3 className="text-sm font-semibold text-slate-100 font-serif mt-2 group-hover:text-amber-300">
+                      <h3 className="text-sm font-bold tracking-tight text-[#F3F4F6] mt-2 group-hover:text-[#D9A62E]">
                         {m.matter_name}
                       </h3>
                       {m.jurisdiction && (
-                        <p className="text-xs text-slate-400 mt-0.5">{m.jurisdiction}</p>
+                        <p className="text-xs text-[#9CA3AF] mt-0.5">{m.jurisdiction}</p>
                       )}
                       {m.description && (
-                        <p className="text-xs text-slate-500 mt-2 line-clamp-2 leading-relaxed">
+                        <p className="text-xs text-[#9CA3AF] mt-2 line-clamp-2 leading-relaxed">
                           {m.description}
                         </p>
                       )}
                     </div>
 
-                    <div className="pt-3 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
+                    <div className="pt-3 border-t border-[#1C2640] flex items-center justify-between text-xs text-[#9CA3AF]">
                       <span className="flex items-center gap-1">
-                        <FileText className="w-3.5 h-3.5 text-slate-500" />
+                        <FileText className="w-3.5 h-3.5 text-[#9CA3AF]" />
                         {m.document_count || 0} document(s)
                       </span>
-                      <span className="text-amber-400 font-medium flex items-center gap-0.5">
+                      <span className="text-[#D9A62E] font-medium flex items-center gap-0.5">
                         Open Workspace <ArrowUpRight className="w-3 h-3" />
                       </span>
                     </div>
@@ -250,48 +250,48 @@ export default function DashboardPage() {
 
           {/* Right Column (1 span): Recent Intelligence History & Audit */}
           <div className="space-y-4">
-            <h2 className="text-base font-serif font-bold text-slate-100 flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-amber-400" />
+            <h2 className="text-base font-bold tracking-tight text-[#F3F4F6] flex items-center gap-2">
+              <Sparkles className="w-4 h-4 text-[#D9A62E]" />
               Recent AI Intelligence Runs
             </h2>
 
             <Card className="space-y-3 p-4">
               {data?.recentAnalyses && data.recentAnalyses.length > 0 ? (
-                <div className="divide-y divide-slate-800/80">
+                <div className="divide-y divide-[#1C2640]">
                   {data.recentAnalyses.map((an) => (
                     <div
                       key={an.id}
                       onClick={() => navigate(`/matters/${an.matter_id}/${an.analysis_type === 'research' ? 'research' : an.analysis_type === 'vulnerabilities' ? 'vulnerabilities' : an.analysis_type === 'clause_comparison' ? 'clauses' : 'brief'}`)}
-                      className="py-2.5 first:pt-0 last:pb-0 cursor-pointer hover:bg-white/5 rounded-lg p-2 transition-all"
+                      className="py-2.5 first:pt-0 last:pb-0 cursor-pointer hover:bg-[#151E36] rounded-lg p-2 transition-all"
                     >
                       <div className="flex items-center justify-between">
-                        <span className="text-[11px] font-semibold uppercase tracking-wider text-amber-400">
+                        <span className="text-[11px] font-semibold uppercase tracking-wider text-[#D9A62E]">
                           {an.analysis_type.replace('_', ' ')}
                         </span>
-                        <span className="text-[10px] text-slate-500">
+                        <span className="text-[10px] text-[#9CA3AF]">
                           {new Date(an.created_at).toLocaleDateString()}
                         </span>
                       </div>
-                      <p className="text-xs font-medium text-slate-200 truncate mt-1">
+                      <p className="text-xs font-medium text-[#F3F4F6] truncate mt-1">
                         {an.matter_name}
                       </p>
                     </div>
                   ))}
                 </div>
               ) : (
-                <p className="text-xs text-slate-500 py-4 text-center">
+                <p className="text-xs text-[#9CA3AF] py-4 text-center">
                   No intelligence operations logged yet. Run research or brief builder inside a matter.
                 </p>
               )}
             </Card>
 
             {/* Quick Security Status */}
-            <Card className="p-4 bg-[#0d1017] border-amber-500/20 space-y-2">
-              <div className="flex items-center space-x-2 text-xs font-semibold text-amber-300">
-                <Shield className="w-4 h-4 text-amber-400" />
+            <Card className="p-4 bg-[#0E1528] border-[#D9A62E]/30 space-y-2">
+              <div className="flex items-center space-x-2 text-xs font-semibold text-[#D9A62E]">
+                <Shield className="w-4 h-4 text-[#D9A62E]" />
                 <span>Matter-Level Isolation Active</span>
               </div>
-              <p className="text-[11px] text-slate-400 leading-relaxed">
+              <p className="text-[11px] text-[#9CA3AF] leading-relaxed">
                 All RAG queries are dynamically parameterized and scoped to your authenticated tenant ID. Zero cross-client data access.
               </p>
             </Card>

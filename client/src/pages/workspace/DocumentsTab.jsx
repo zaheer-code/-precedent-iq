@@ -96,9 +96,9 @@ export default function DocumentsTab({ matter, documents = [], onRefresh }) {
     <div className="space-y-8">
       
       {/* Upload Zone Card */}
-      <Card className="p-6">
-        <h3 className="text-base font-serif font-bold text-slate-100 mb-1 flex items-center gap-2">
-          <FileUp className="w-5 h-5 text-amber-400" />
+      <Card className="p-6 bg-[#11182D] border-[#1C2640]">
+        <h3 className="text-base font-bold tracking-tight text-[#F3F4F6] mb-1 flex items-center gap-2">
+          <FileUp className="w-5 h-5 text-[#D9A62E]" />
           Ingest Legal Documents to Matter
         </h3>
         <p className="text-xs text-slate-400 mb-6">
@@ -114,11 +114,11 @@ export default function DocumentsTab({ matter, documents = [], onRefresh }) {
       </Card>
 
       {/* Ingested Documents Table */}
-      <Card className="p-0 overflow-hidden">
-        <div className="p-5 border-b border-slate-800/80 bg-[#0e131d] flex items-center justify-between">
+      <Card className="p-0 overflow-hidden bg-[#11182D] border-[#1C2640]">
+        <div className="p-5 border-b border-[#1C2640] bg-[#0E1528] flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            <FileText className="w-4 h-4 text-amber-400" />
-            <h3 className="text-sm font-semibold text-slate-100">
+            <FileText className="w-4 h-4 text-[#D9A62E]" />
+            <h3 className="text-sm font-semibold text-[#F3F4F6]">
               Ingested Documents ({documents.length})
             </h3>
           </div>
@@ -130,7 +130,7 @@ export default function DocumentsTab({ matter, documents = [], onRefresh }) {
         {documents.length > 0 ? (
           <div className="overflow-x-auto">
             <table className="w-full text-left text-xs">
-              <thead className="bg-[#090c12] border-b border-slate-800 text-slate-400 uppercase tracking-wider font-semibold">
+              <thead className="bg-[#0B1020] border-b border-[#1C2640] text-slate-400 uppercase tracking-wider font-semibold">
                 <tr>
                   <th className="py-3 px-4">Filename</th>
                   <th className="py-3 px-4">Classification</th>
@@ -140,17 +140,17 @@ export default function DocumentsTab({ matter, documents = [], onRefresh }) {
                   <th className="py-3 px-4 text-right">Actions</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-slate-800/60">
+              <tbody className="divide-y divide-[#1C2640]">
                 {documents.map((doc) => (
-                  <tr key={doc.id} className="hover:bg-white/5 transition-colors">
+                  <tr key={doc.id} className="hover:bg-[#151E36]/50 transition-colors">
                     
                     {/* Filename */}
                     <td className="py-3 px-4">
                       <div className="flex items-center space-x-2.5 max-w-xs">
-                        <FileText className="w-4 h-4 text-amber-400 flex-shrink-0" />
-                        <span className="font-medium text-slate-200 truncate">{doc.original_filename}</span>
+                        <FileText className="w-4 h-4 text-[#D9A62E] flex-shrink-0" />
+                        <span className="font-medium text-[#F3F4F6] truncate">{doc.original_filename}</span>
                       </div>
-                      <span className="text-[10px] text-slate-500 font-mono pl-6">
+                      <span className="text-[10px] text-slate-400 font-medium pl-6">
                         {(doc.file_size / 1024).toFixed(0)} KB • {doc.mime_type?.split('/')[1] || 'doc'}
                       </span>
                     </td>
@@ -170,7 +170,7 @@ export default function DocumentsTab({ matter, documents = [], onRefresh }) {
                     </td>
 
                     {/* Pages & Chunks */}
-                    <td className="py-3 px-4 text-slate-300 font-mono">
+                    <td className="py-3 px-4 text-slate-300 font-medium">
                       {doc.page_count ? `${doc.page_count} page(s)` : '—'} / {doc.chunk_count || 0} vectors
                     </td>
 
@@ -189,7 +189,7 @@ export default function DocumentsTab({ matter, documents = [], onRefresh }) {
                       <button
                         onClick={() => handlePreview(doc)}
                         title="Inspect Extracted Text & Pages"
-                        className="p-1.5 rounded-lg text-slate-400 hover:text-amber-300 hover:bg-slate-800 transition-colors"
+                        className="p-1.5 rounded-lg text-slate-400 hover:text-[#D9A62E] hover:bg-[#151E36] transition-colors"
                       >
                         <Eye className="w-4 h-4" />
                       </button>
@@ -197,7 +197,7 @@ export default function DocumentsTab({ matter, documents = [], onRefresh }) {
                       <button
                         onClick={() => handleReprocess(doc.id)}
                         title="Reprocess Document & Embeddings"
-                        className="p-1.5 rounded-lg text-slate-400 hover:text-sky-300 hover:bg-slate-800 transition-colors"
+                        className="p-1.5 rounded-lg text-slate-400 hover:text-[#D9A62E] hover:bg-[#151E36] transition-colors"
                       >
                         <RefreshCw className="w-4 h-4" />
                       </button>
@@ -205,7 +205,7 @@ export default function DocumentsTab({ matter, documents = [], onRefresh }) {
                       <button
                         onClick={() => setDeleteConfirmDoc(doc)}
                         title="Delete Document"
-                        className="p-1.5 rounded-lg text-slate-400 hover:text-rose-400 hover:bg-rose-950/40 transition-colors"
+                        className="p-1.5 rounded-lg text-slate-400 hover:text-rose-400 hover:bg-rose-950/30 transition-colors"
                       >
                         <Trash2 className="w-4 h-4" />
                       </button>
@@ -217,7 +217,7 @@ export default function DocumentsTab({ matter, documents = [], onRefresh }) {
             </table>
           </div>
         ) : (
-          <div className="p-8 text-center text-xs text-slate-500">
+          <div className="p-8 text-center text-xs text-slate-400">
             No documents uploaded to this matter yet. Use the upload zone above.
           </div>
         )}
@@ -235,16 +235,16 @@ export default function DocumentsTab({ matter, documents = [], onRefresh }) {
             <LoadingSpinner text="Loading parsed pages..." />
           ) : selectedDocForPreview?.pages && selectedDocForPreview.pages.length > 0 ? (
             selectedDocForPreview.pages.map((p) => (
-              <div key={p.id || p.page_number} className="p-4 rounded-xl bg-[#090c12] border border-slate-800 space-y-2">
-                <div className="flex items-center justify-between pb-2 border-b border-slate-800/60">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-amber-400">
+              <div key={p.id || p.page_number} className="p-4 rounded-xl bg-[#0B1020] border border-[#1C2640] space-y-2">
+                <div className="flex items-center justify-between pb-2 border-b border-[#1C2640]">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-[#D9A62E]">
                     Page {p.page_number}
                   </span>
-                  <span className="text-[10px] text-slate-500 font-mono">
+                  <span className="text-[10px] text-slate-400 font-medium">
                     {p.extracted_text.length} characters
                   </span>
                 </div>
-                <div className="text-xs font-serif text-slate-200 leading-relaxed whitespace-pre-wrap select-text">
+                <div className="text-xs text-[#F3F4F6] font-normal leading-relaxed whitespace-pre-wrap select-text">
                   {p.extracted_text}
                 </div>
               </div>

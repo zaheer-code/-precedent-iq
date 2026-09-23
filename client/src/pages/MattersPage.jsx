@@ -150,10 +150,10 @@ export default function MattersPage() {
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <h1 className="text-2xl font-serif font-bold text-slate-100">
+            <h1 className="text-2xl font-bold tracking-tight text-[#F3F4F6]">
               Legal Matters & Workspaces
             </h1>
-            <p className="text-xs text-slate-400 mt-1">
+            <p className="text-xs text-slate-400 mt-1 font-normal">
               Manage litigation files, contracts, and isolated case records
             </p>
           </div>
@@ -163,7 +163,7 @@ export default function MattersPage() {
         </div>
 
         {/* Filters and Search Bar */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 p-3 bg-[#10141e] rounded-xl border border-slate-800">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 p-3 bg-[#11182D] rounded-xl border border-[#1C2640]">
           <div className="relative w-full sm:w-80">
             <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
             <input
@@ -171,20 +171,20 @@ export default function MattersPage() {
               placeholder="Search matters by name, number, practice area..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-9 pr-3 py-1.5 rounded-lg bg-[#0a0d14] border border-slate-800 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-amber-500/50"
+              className="w-full pl-9 pr-3 py-1.5 rounded-lg bg-[#0E1528] border border-[#1C2640] text-xs text-[#F3F4F6] placeholder-slate-500 focus:outline-none focus:border-[#D9A62E]/60"
             />
           </div>
 
           <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
-            <div className="flex rounded-lg bg-[#0a0d14] p-1 border border-slate-800 text-xs">
+            <div className="flex rounded-lg bg-[#0E1528] p-1 border border-[#1C2640] text-xs">
               {['ALL', 'ACTIVE', 'ARCHIVED'].map((st) => (
                 <button
                   key={st}
                   onClick={() => setStatusFilter(st)}
                   className={`px-3 py-1 rounded-md font-medium transition-all ${
                     statusFilter === st
-                      ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30'
-                      : 'text-slate-400 hover:text-white'
+                      ? 'bg-[#D9A62E]/15 text-[#D9A62E] border border-[#D9A62E]/35'
+                      : 'text-slate-400 hover:text-[#F3F4F6]'
                   }`}
                 >
                   {st}
@@ -204,7 +204,7 @@ export default function MattersPage() {
                 key={m.id}
                 hover
                 onClick={() => navigate(`/matters/${m.id}`)}
-                className="flex flex-col justify-between space-y-4 group relative"
+                className="flex flex-col justify-between space-y-4 group relative bg-[#11182D] border-[#1C2640]"
               >
                 <div>
                   <div className="flex items-start justify-between gap-2">
@@ -215,7 +215,7 @@ export default function MattersPage() {
                       <button
                         onClick={(e) => openEditModal(m, e)}
                         title="Edit Matter Info"
-                        className="p-1 rounded text-slate-500 hover:text-amber-300 hover:bg-slate-800 transition-colors"
+                        className="p-1 rounded text-slate-400 hover:text-[#D9A62E] hover:bg-[#151E36] transition-colors"
                       >
                         <Edit2 className="w-3.5 h-3.5" />
                       </button>
@@ -225,19 +225,19 @@ export default function MattersPage() {
                           setDeleteConfirmMatter(m);
                         }}
                         title="Delete Matter"
-                        className="p-1 rounded text-slate-500 hover:text-rose-400 hover:bg-rose-950/40 transition-colors"
+                        className="p-1 rounded text-slate-400 hover:text-rose-400 hover:bg-rose-950/30 transition-colors"
                       >
                         <Trash2 className="w-3.5 h-3.5" />
                       </button>
                     </div>
                   </div>
 
-                  <h3 className="text-base font-serif font-bold text-slate-100 mt-2.5 group-hover:text-amber-300 transition-colors">
+                  <h3 className="text-base font-bold text-[#F3F4F6] mt-2.5 group-hover:text-[#D9A62E] transition-colors">
                     {m.matter_name}
                   </h3>
 
                   {m.matter_number && (
-                    <p className="text-[11px] font-mono text-amber-400/80 mt-0.5">
+                    <p className="text-[11px] font-medium text-[#D9A62E]/90 mt-0.5">
                       Case #{m.matter_number}
                     </p>
                   )}
@@ -247,24 +247,24 @@ export default function MattersPage() {
                   )}
 
                   {m.description && (
-                    <p className="text-xs text-slate-500 mt-2.5 line-clamp-2 leading-relaxed">
+                    <p className="text-xs text-slate-400 mt-2.5 line-clamp-2 leading-relaxed">
                       {m.description}
                     </p>
                   )}
                 </div>
 
-                <div className="pt-3.5 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
+                <div className="pt-3.5 border-t border-[#1C2640] flex items-center justify-between text-xs text-slate-400">
                   <div className="flex items-center space-x-3">
                     <span className="flex items-center gap-1">
-                      <FileText className="w-3.5 h-3.5 text-slate-500" />
+                      <FileText className="w-3.5 h-3.5 text-slate-400" />
                       {m.document_count || 0} Docs
                     </span>
                     <span className="flex items-center gap-1">
-                      <Database className="w-3.5 h-3.5 text-slate-500" />
+                      <Database className="w-3.5 h-3.5 text-slate-400" />
                       {m.chunk_count || 0} Chunks
                     </span>
                   </div>
-                  <span className="text-amber-400 font-semibold flex items-center gap-0.5 group-hover:translate-x-0.5 transition-transform">
+                  <span className="text-[#D9A62E] font-semibold flex items-center gap-0.5 group-hover:translate-x-0.5 transition-transform">
                     Enter <ArrowUpRight className="w-3.5 h-3.5" />
                   </span>
                 </div>

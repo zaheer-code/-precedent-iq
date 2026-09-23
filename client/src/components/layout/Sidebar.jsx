@@ -43,19 +43,19 @@ export default function Sidebar() {
   ] : [];
 
   return (
-    <aside className="w-64 bg-[#0d1017] border-r border-slate-800/80 flex flex-col h-screen select-none">
+    <aside className="w-64 bg-[#0B1020] border-r border-[#1C2640] flex flex-col h-screen select-none">
       
       {/* Brand Logo */}
-      <div className="h-16 flex items-center px-6 border-b border-slate-800/80 bg-[#090c12]">
+      <div className="h-16 flex items-center px-6 border-b border-[#1C2640] bg-[#0B1020]">
         <div className="flex items-center space-x-2.5">
-          <div className="p-1.5 bg-gradient-to-br from-amber-400 to-amber-600 rounded-lg shadow-lg shadow-amber-500/20 text-slate-950">
+          <div className="p-1.5 bg-[#D9A62E] rounded-lg shadow-md shadow-[#D9A62E]/20 text-[#0B1020]">
             <Scale className="w-5 h-5 stroke-[2.5]" />
           </div>
           <div>
-            <span className="font-serif font-bold text-base tracking-wider bg-gradient-to-r from-amber-200 via-amber-100 to-amber-400 bg-clip-text text-transparent">
-              PRECEDENT<span className="font-sans font-black text-amber-400">IQ</span>
+            <span className="font-extrabold text-base tracking-tight text-[#F3F4F6]">
+              PRECEDENT<span className="text-[#D9A62E]">IQ</span>
             </span>
-            <span className="block text-[9px] font-semibold uppercase tracking-widest text-slate-400">
+            <span className="block text-[9px] font-semibold uppercase tracking-widest text-[#9CA3AF]">
               Legal Intelligence
             </span>
           </div>
@@ -67,7 +67,7 @@ export default function Sidebar() {
         
         {/* Main Section */}
         <div>
-          <div className="px-3 mb-2 text-[10px] font-bold uppercase tracking-wider text-slate-400">
+          <div className="px-3 mb-2 text-[10px] font-bold uppercase tracking-wider text-[#9CA3AF]">
             Platform
           </div>
           <nav className="space-y-1">
@@ -81,12 +81,12 @@ export default function Sidebar() {
                   className={({ isActive }) =>
                     `flex items-center gap-3 px-3 py-2 rounded-lg text-xs font-medium transition-all ${
                       isActive && !currentMatterId
-                        ? 'bg-amber-500/15 text-amber-300 border border-amber-500/30'
-                        : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
+                        ? 'bg-[#D9A62E]/15 text-[#D9A62E] border border-[#D9A62E]/30 font-semibold'
+                        : 'text-[#9CA3AF] hover:text-[#F3F4F6] hover:bg-[#151E36]'
                     }`
                   }
                 >
-                  <Icon className="w-4 h-4 text-slate-400 group-hover:text-amber-400" />
+                  <Icon className="w-4 h-4 text-[#9CA3AF] group-hover:text-[#D9A62E]" />
                   <span>{item.name}</span>
                 </NavLink>
               );
@@ -97,9 +97,9 @@ export default function Sidebar() {
         {/* Matter Workspace Specific Section */}
         {currentMatterId && (
           <div>
-            <div className="px-3 mb-2 flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-amber-400">
+            <div className="px-3 mb-2 flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-[#D9A62E]">
               <span>Active Workspace</span>
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-[#D9A62E] animate-pulse" />
             </div>
             <nav className="space-y-1">
               {workspaceLinks.map((item) => {
@@ -112,12 +112,12 @@ export default function Sidebar() {
                     className={({ isActive }) =>
                       `flex items-center gap-3 px-3 py-2 rounded-lg text-xs font-medium transition-all ${
                         isActive
-                          ? 'bg-amber-500/15 text-amber-300 font-semibold border border-amber-500/40 shadow-sm'
-                          : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
+                          ? 'bg-[#D9A62E]/15 text-[#D9A62E] font-semibold border border-[#D9A62E]/40 shadow-sm'
+                          : 'text-[#9CA3AF] hover:text-[#F3F4F6] hover:bg-[#151E36]'
                       }`
                     }
                   >
-                    <Icon className="w-4 h-4 text-amber-400/80" />
+                    <Icon className="w-4 h-4 text-[#D9A62E]" />
                     <span className="truncate">{item.name}</span>
                   </NavLink>
                 );
@@ -129,21 +129,21 @@ export default function Sidebar() {
       </div>
 
       {/* User Session Footer */}
-      <div className="p-3 border-t border-slate-800/80 bg-[#090c12]">
-        <div className="flex items-center justify-between p-2 rounded-lg bg-[#121722] border border-slate-800">
+      <div className="p-3 border-t border-[#1C2640] bg-[#0B1020]">
+        <div className="flex items-center justify-between p-2 rounded-lg bg-[#11182D] border border-[#1C2640]">
           <div className="flex items-center space-x-2.5 truncate">
-            <div className="w-7 h-7 rounded-full bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-300 text-xs font-bold font-serif flex-shrink-0">
+            <div className="w-7 h-7 rounded-full bg-[#D9A62E]/15 border border-[#D9A62E]/40 flex items-center justify-center text-[#D9A62E] text-xs font-bold flex-shrink-0">
               {user?.fullName ? user.fullName[0].toUpperCase() : 'A'}
             </div>
             <div className="truncate text-left">
-              <p className="text-xs font-semibold text-slate-200 truncate">{user?.fullName || 'Legal Counsel'}</p>
-              <p className="text-[10px] text-slate-400 truncate">{user?.email || 'authenticated'}</p>
+              <p className="text-xs font-semibold text-[#F3F4F6] truncate">{user?.fullName || 'Legal Counsel'}</p>
+              <p className="text-[10px] text-[#9CA3AF] truncate">{user?.email || 'authenticated'}</p>
             </div>
           </div>
           <button
             onClick={logout}
             title="Sign out of PrecedentIQ"
-            className="p-1.5 rounded-md text-slate-400 hover:text-rose-400 hover:bg-rose-950/40 transition-colors"
+            className="p-1.5 rounded-md text-[#9CA3AF] hover:text-[#F3F4F6] hover:bg-[#151E36] transition-colors"
           >
             <LogOut className="w-4 h-4" />
           </button>

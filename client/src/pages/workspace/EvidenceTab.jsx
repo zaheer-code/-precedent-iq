@@ -81,8 +81,8 @@ export default function EvidenceTab({ matter, documents = [], onSelectCitation }
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h2 className="text-xl font-serif font-bold text-slate-100 flex items-center gap-2">
-            <Database className="w-5 h-5 text-amber-400" />
+          <h2 className="text-xl font-bold tracking-tight text-[#F3F4F6] flex items-center gap-2">
+            <Database className="w-5 h-5 text-[#D9A62E]" />
             Evidence & Semantic Vector Explorer
           </h2>
           <p className="text-xs text-slate-400 mt-0.5">
@@ -90,14 +90,14 @@ export default function EvidenceTab({ matter, documents = [], onSelectCitation }
           </p>
         </div>
 
-        <div className="flex items-center gap-2 text-xs text-emerald-400 font-mono bg-emerald-950/40 px-3 py-1.5 rounded-lg border border-emerald-500/30">
-          <ShieldCheck className="w-4 h-4" />
+        <div className="flex items-center gap-2 text-xs text-[#D9A62E] font-medium bg-[#151E36] px-3 py-1.5 rounded-lg border border-[#1C2640]">
+          <ShieldCheck className="w-4 h-4 text-[#D9A62E]" />
           <span>{totalChunks} Grounded Chunks</span>
         </div>
       </div>
 
       {/* Filter and Search Bar */}
-      <Card className="p-4 bg-[#10141e]">
+      <Card className="p-4 bg-[#11182D] border-[#1C2640]">
         <form onSubmit={handleSearchSubmit} className="flex flex-col md:flex-row items-center gap-3">
           
           <div className="relative flex-1 w-full">
@@ -107,7 +107,7 @@ export default function EvidenceTab({ matter, documents = [], onSelectCitation }
               placeholder="Search vector text content (e.g. indemnity, liability, delivery date)..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-9 pr-3 py-2 rounded-lg bg-[#0a0d14] border border-slate-800 text-xs text-slate-200 placeholder-slate-500 focus:outline-none focus:border-amber-500/50"
+              className="w-full pl-9 pr-3 py-2 rounded-lg bg-[#0E1528] border border-[#1C2640] text-xs text-[#F3F4F6] placeholder-slate-500 focus:outline-none focus:border-[#D9A62E]/60"
             />
           </div>
 
@@ -115,7 +115,7 @@ export default function EvidenceTab({ matter, documents = [], onSelectCitation }
             <select
               value={selectedDocId}
               onChange={(e) => setSelectedDocId(e.target.value)}
-              className="w-full px-3 py-2 rounded-lg bg-[#0a0d14] border border-slate-800 text-xs text-slate-200 focus:outline-none focus:border-amber-500/50"
+              className="w-full px-3 py-2 rounded-lg bg-[#0E1528] border border-[#1C2640] text-xs text-[#F3F4F6] focus:outline-none focus:border-[#D9A62E]/60"
             >
               {docOptions.map(opt => (
                 <option key={opt.value} value={opt.value}>{opt.label}</option>
@@ -132,7 +132,7 @@ export default function EvidenceTab({ matter, documents = [], onSelectCitation }
 
       {/* Chunk List */}
       {loading ? (
-        <Card className="py-12">
+        <Card className="py-12 bg-[#11182D] border-[#1C2640]">
           <LoadingSpinner text="Querying pgvector chunks..." />
         </Card>
       ) : chunks.length > 0 ? (
@@ -148,17 +148,17 @@ export default function EvidenceTab({ matter, documents = [], onSelectCitation }
                 page: c.page_number,
                 quotedEvidence: c.content
               })}
-              className="p-5 bg-[#0f1420] border-slate-800 hover:border-amber-500/40 space-y-3 transition-all cursor-pointer"
+              className="p-5 bg-[#0E1528] border-[#1C2640] hover:border-[#D9A62E]/40 space-y-3 transition-all cursor-pointer"
             >
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-2 border-b border-slate-800/60 text-xs">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-2 border-b border-[#1C2640] text-xs">
                 <div className="flex items-center space-x-2">
-                  <FileText className="w-4 h-4 text-amber-400 flex-shrink-0" />
-                  <span className="font-semibold text-slate-200">{c.document_name}</span>
+                  <FileText className="w-4 h-4 text-[#D9A62E] flex-shrink-0" />
+                  <span className="font-semibold text-[#F3F4F6]">{c.document_name}</span>
                   <DocumentCategoryBadge category={c.category} />
                 </div>
 
-                <div className="flex items-center space-x-3 text-[11px] text-slate-400 font-mono">
-                  <span className="text-amber-300 font-semibold">Page {c.page_number}</span>
+                <div className="flex items-center space-x-3 text-[11px] text-slate-400 font-medium">
+                  <span className="text-[#D9A62E] font-semibold">Page {c.page_number}</span>
                   <span>•</span>
                   <span>Chunk #{c.chunk_index}</span>
                   <span>•</span>
@@ -166,11 +166,11 @@ export default function EvidenceTab({ matter, documents = [], onSelectCitation }
                   
                   <button
                     onClick={(e) => copyChunk(c, e)}
-                    className="p-1 rounded text-slate-400 hover:text-amber-300 hover:bg-slate-800 transition-colors ml-2"
+                    className="p-1 rounded text-slate-400 hover:text-[#D9A62E] hover:bg-[#151E36] transition-colors ml-2"
                     title="Copy Chunk Text"
                   >
                     {copiedId === c.chunk_id ? (
-                      <Check className="w-3.5 h-3.5 text-emerald-400" />
+                      <Check className="w-3.5 h-3.5 text-[#D9A62E]" />
                     ) : (
                       <Copy className="w-3.5 h-3.5" />
                     )}
@@ -178,16 +178,16 @@ export default function EvidenceTab({ matter, documents = [], onSelectCitation }
                 </div>
               </div>
 
-              <p className="text-xs font-serif text-slate-200 leading-relaxed line-clamp-4 select-text">
+              <p className="text-xs text-[#F3F4F6] font-normal leading-relaxed line-clamp-4 select-text">
                 "{c.content}"
               </p>
             </Card>
           ))}
 
           {/* Pagination Controls */}
-          <div className="flex items-center justify-between p-4 bg-[#10141e] rounded-xl border border-slate-800 text-xs">
+          <div className="flex items-center justify-between p-4 bg-[#11182D] rounded-xl border border-[#1C2640] text-xs">
             <span className="text-slate-400">
-              Page <span className="text-slate-200 font-semibold">{page}</span> of <span className="text-slate-200 font-semibold">{totalPages}</span> ({totalChunks} total chunks)
+              Page <span className="text-[#F3F4F6] font-semibold">{page}</span> of <span className="text-[#F3F4F6] font-semibold">{totalPages}</span> ({totalChunks} total chunks)
             </span>
 
             <div className="flex items-center space-x-2">
@@ -214,7 +214,7 @@ export default function EvidenceTab({ matter, documents = [], onSelectCitation }
 
         </div>
       ) : (
-        <Card className="p-8 text-center text-xs text-slate-500">
+        <Card className="p-8 text-center text-xs text-slate-400 bg-[#11182D] border-[#1C2640]">
           No chunks found matching current query.
         </Card>
       )}

@@ -75,12 +75,12 @@ export default function VulnerabilitiesTab({ matter, documents = [], onSelectCit
     <div className="space-y-8">
       
       {/* Input Card */}
-      <Card className="p-6">
+      <Card className="p-6 bg-[#11182D] border-[#1C2640]">
         <form onSubmit={handleAnalyze} className="space-y-5">
           
           <div>
-            <h3 className="text-base font-serif font-bold text-slate-100 flex items-center gap-2">
-              <ShieldAlert className="w-5 h-5 text-rose-400" />
+            <h3 className="text-base font-bold tracking-tight text-[#F3F4F6] flex items-center gap-2">
+              <ShieldAlert className="w-5 h-5 text-[#D9A62E]" />
               Opposing Argument Vulnerability Detector
             </h3>
             <p className="text-xs text-slate-400 mt-0.5">
@@ -98,18 +98,18 @@ export default function VulnerabilitiesTab({ matter, documents = [], onSelectCit
           />
 
           <div className="flex items-center justify-between text-xs">
-            <span className="text-slate-500 font-semibold uppercase text-[10px]">Sample Assertion:</span>
+            <span className="text-slate-400 font-semibold uppercase text-[10px]">Sample Assertion:</span>
             <button
               type="button"
               onClick={() => setOpposingArgument(sampleArgument)}
-              className="text-amber-400 hover:text-amber-300 underline text-xs"
+              className="text-[#D9A62E] hover:text-[#E5B645] underline text-xs"
             >
               Insert Sample Notice Defense Argument
             </button>
           </div>
 
           {/* Focus Area Checkboxes */}
-          <div className="space-y-2 pt-2 border-t border-slate-800/80">
+          <div className="space-y-2 pt-2 border-t border-[#1C2640]">
             <label className="text-xs font-semibold uppercase tracking-wider text-slate-400 block">
               Vulnerability Focus Areas
             </label>
@@ -123,16 +123,16 @@ export default function VulnerabilitiesTab({ matter, documents = [], onSelectCit
                     onClick={() => toggleFocus(area.id)}
                     className={`flex items-center space-x-2 p-2 rounded-xl text-xs text-left transition-all border ${
                       checked
-                        ? 'bg-amber-500/10 border-amber-500/30 text-amber-200'
-                        : 'bg-[#0f1420] border-slate-800 text-slate-400 hover:text-slate-200'
+                        ? 'bg-[#D9A62E]/15 border-[#D9A62E]/35 text-[#D9A62E]'
+                        : 'bg-[#0E1528] border-[#1C2640] text-slate-400 hover:text-[#F3F4F6]'
                     }`}
                   >
                     <div className={`w-3.5 h-3.5 rounded flex items-center justify-center border ${
-                      checked ? 'bg-amber-500 border-amber-400 text-slate-950' : 'border-slate-700'
+                      checked ? 'bg-[#D9A62E] border-[#D9A62E] text-[#0B1020]' : 'border-[#1C2640]'
                     }`}>
                       {checked && <span className="text-[10px] font-bold">✓</span>}
                     </div>
-                    <span>{area.label}</span>
+                    <span className="font-medium">{area.label}</span>
                   </button>
                 );
               })}
@@ -142,7 +142,7 @@ export default function VulnerabilitiesTab({ matter, documents = [], onSelectCit
           <div className="flex justify-end pt-2">
             <Button
               type="submit"
-              variant="danger"
+              variant="primary"
               size="lg"
               loading={loading}
               icon={Flame}
@@ -156,7 +156,7 @@ export default function VulnerabilitiesTab({ matter, documents = [], onSelectCit
 
       {/* Loading Spinner */}
       {loading && (
-        <Card className="py-12">
+        <Card className="py-12 bg-[#11182D] border-[#1C2640]">
           <LoadingSpinner text="Deconstructing argument & matching contradictory evidence..." size="lg" />
         </Card>
       )}
@@ -166,12 +166,12 @@ export default function VulnerabilitiesTab({ matter, documents = [], onSelectCit
         <div className="space-y-6 animate-in fade-in duration-300">
           
           {/* Overall Strategic Assessment */}
-          <Card className="p-6 border-rose-500/30 bg-[#161017]">
-            <h3 className="text-sm font-serif font-bold text-rose-300 uppercase tracking-wider mb-2 flex items-center gap-2">
-              <ShieldAlert className="w-4 h-4 text-rose-400" />
+          <Card className="p-6 border-[#D9A62E]/35 bg-[#151E36]">
+            <h3 className="text-sm font-bold text-[#D9A62E] uppercase tracking-wider mb-2 flex items-center gap-2">
+              <ShieldAlert className="w-4 h-4 text-[#D9A62E]" />
               Strategic Vulnerability Assessment
             </h3>
-            <p className="text-sm font-serif text-slate-100 leading-relaxed">
+            <p className="text-sm text-[#F3F4F6] font-normal leading-relaxed">
               {result.overallAssessment}
             </p>
           </Card>
@@ -179,19 +179,19 @@ export default function VulnerabilitiesTab({ matter, documents = [], onSelectCit
           {/* Vulnerabilities List */}
           {result.vulnerabilities && result.vulnerabilities.length > 0 && (
             <div className="space-y-4">
-              <h3 className="text-sm font-serif font-bold text-slate-100 flex items-center gap-2">
-                <AlertTriangle className="w-4 h-4 text-rose-400" />
+              <h3 className="text-sm font-bold tracking-tight text-[#F3F4F6] flex items-center gap-2">
+                <AlertTriangle className="w-4 h-4 text-[#D9A62E]" />
                 Detected Flaws & Evidentiary Contradictions ({result.vulnerabilities.length})
               </h3>
 
               <div className="grid grid-cols-1 gap-4">
                 {result.vulnerabilities.map((v, idx) => (
-                  <Card key={idx} className="p-5 bg-[#0f1420] border-slate-800 space-y-4">
+                  <Card key={idx} className="p-5 bg-[#0E1528] border-[#1C2640] space-y-4">
                     
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-slate-800">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 border-b border-[#1C2640]">
                       <div className="flex items-center gap-2">
                         <SeverityBadge severity={v.severity} />
-                        <span className="font-mono text-xs font-semibold uppercase text-amber-400">
+                        <span className="font-medium text-xs uppercase text-[#D9A62E]">
                           {v.type.replace('_', ' ')}
                         </span>
                       </div>
@@ -199,28 +199,28 @@ export default function VulnerabilitiesTab({ matter, documents = [], onSelectCit
 
                     {/* Opposing Claim */}
                     <div className="space-y-1">
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
                         Opposing Assertion:
                       </span>
-                      <p className="text-xs font-medium text-rose-200/90 italic bg-rose-950/20 p-2 rounded-lg border border-rose-500/20">
+                      <p className="text-xs font-medium text-[#F3F4F6] italic bg-[#0B1020] p-2 rounded-lg border border-[#1C2640]">
                         "{v.claim}"
                       </p>
                     </div>
 
                     {/* Problem Analysis */}
                     <div className="space-y-1">
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
                         Factual / Legal Vulnerability:
                       </span>
-                      <p className="text-xs text-slate-200 leading-relaxed">
+                      <p className="text-xs text-[#F3F4F6] leading-relaxed">
                         {v.problem}
                       </p>
                     </div>
 
                     {/* Why it matters */}
                     {v.whyItMatters && (
-                      <div className="space-y-1 bg-[#141a27] p-3 rounded-xl border border-slate-800">
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-amber-400">
+                      <div className="space-y-1 bg-[#151E36] p-3 rounded-xl border border-[#1C2640]">
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-[#D9A62E]">
                           Strategic & Litigation Impact:
                         </span>
                         <p className="text-xs text-slate-300 leading-relaxed">
@@ -231,8 +231,8 @@ export default function VulnerabilitiesTab({ matter, documents = [], onSelectCit
 
                     {/* Attached Citations */}
                     {v.citations && v.citations.length > 0 && (
-                      <div className="pt-2 border-t border-slate-800/80 flex flex-wrap items-center gap-2">
-                        <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-500">
+                      <div className="pt-2 border-t border-[#1C2640] flex flex-wrap items-center gap-2">
+                        <span className="text-[10px] font-semibold uppercase tracking-wider text-slate-400">
                           Rebuttal Citations:
                         </span>
                         {v.citations.map((cit, cIdx) => (
@@ -253,7 +253,7 @@ export default function VulnerabilitiesTab({ matter, documents = [], onSelectCit
 
           {/* Missing Evidence */}
           {result.missingEvidence && result.missingEvidence.length > 0 && (
-            <Card className="p-5 border-slate-800 bg-[#0d1017] space-y-2">
+            <Card className="p-5 border-[#1C2640] bg-[#0E1528] space-y-2">
               <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider flex items-center gap-2">
                 <HelpCircle className="w-4 h-4 text-slate-400" />
                 Opposing Party's Missing Evidentiary Foundations

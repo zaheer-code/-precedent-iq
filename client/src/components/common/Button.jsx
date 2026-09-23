@@ -13,14 +13,14 @@ export default function Button({
   className = '',
   ...props
 }) {
-  const baseStyles = "inline-flex items-center justify-center font-medium rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#0a0d14] disabled:opacity-50 disabled:cursor-not-allowed";
+  const baseStyles = "inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-[#0B1020] disabled:opacity-50 disabled:cursor-not-allowed tracking-tight";
 
   const variants = {
-    primary: "bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-semibold shadow-lg shadow-amber-500/20 focus:ring-amber-400 border border-amber-400/30",
-    secondary: "bg-[#161c2c] hover:bg-[#1f283e] text-slate-200 border border-slate-700/60 focus:ring-slate-500",
-    navy: "bg-[#1a243b] hover:bg-[#223050] text-amber-200 border border-amber-400/20 focus:ring-amber-500",
-    ghost: "bg-transparent hover:bg-white/5 text-slate-300 hover:text-white focus:ring-slate-400",
-    danger: "bg-rose-950 hover:bg-rose-900 text-rose-200 border border-rose-600/40 focus:ring-rose-500"
+    primary: "bg-[#D9A62E] hover:bg-[#E5B645] active:bg-[#C49223] text-[#0B1020] font-bold shadow-md shadow-[#D9A62E]/20 focus:ring-[#D9A62E] border border-[#D9A62E]",
+    secondary: "bg-[#151E36] hover:bg-[#1C2848] text-[#F3F4F6] border border-[#1C2640] focus:ring-[#1C2640]",
+    navy: "bg-[#11182D] hover:bg-[#151E36] text-[#D9A62E] border border-[#D9A62E]/30 focus:ring-[#D9A62E]",
+    ghost: "bg-transparent hover:bg-[#151E36] text-[#9CA3AF] hover:text-[#F3F4F6] focus:ring-[#1C2640]",
+    danger: "bg-[#1A1420] hover:bg-[#251828] text-rose-300 border border-rose-900/40 focus:ring-rose-800"
   };
 
   const sizes = {

@@ -4,10 +4,10 @@ export function Card({ children, className = '', hover = false, gold = false, on
   return (
     <div
       onClick={onClick}
-      className={`rounded-xl bg-[#121722]/80 border ${
-        gold ? 'border-amber-500/30' : 'border-slate-800/80'
-      } backdrop-blur-md p-5 transition-all duration-200 ${
-        hover ? 'hover:border-slate-700 hover:bg-[#151b29] hover:shadow-xl hover:-translate-y-0.5 cursor-pointer' : ''
+      className={`rounded-xl bg-[#11182D] border ${
+        gold ? 'border-[#D9A62E]/40' : 'border-[#1C2640]'
+      } p-5 transition-all duration-200 ${
+        hover ? 'hover:border-[#2A3B60] hover:bg-[#151E36] hover:shadow-lg cursor-pointer' : ''
       } ${className}`}
       {...props}
     >
@@ -18,24 +18,24 @@ export function Card({ children, className = '', hover = false, gold = false, on
 
 export function Badge({ children, variant = 'default', size = 'sm', className = '' }) {
   const variants = {
-    default: 'bg-slate-800 text-slate-300 border-slate-700',
-    gold: 'bg-amber-500/10 text-amber-300 border-amber-500/30',
-    navy: 'bg-sky-500/10 text-sky-300 border-sky-500/30',
-    success: 'bg-emerald-500/10 text-emerald-300 border-emerald-500/30',
-    warning: 'bg-amber-500/15 text-amber-400 border-amber-500/30',
-    danger: 'bg-rose-500/10 text-rose-300 border-rose-500/30',
-    purple: 'bg-purple-500/10 text-purple-300 border-purple-500/30'
+    default: 'bg-[#151E36] text-[#9CA3AF] border-[#1C2640]',
+    gold: 'bg-[#D9A62E]/15 text-[#D9A62E] border-[#D9A62E]/30',
+    navy: 'bg-[#151E36] text-[#F3F4F6] border-[#1C2640]',
+    success: 'bg-[#D9A62E]/10 text-[#F3F4F6] border-[#D9A62E]/20',
+    warning: 'bg-[#D9A62E]/20 text-[#D9A62E] border-[#D9A62E]/40',
+    danger: 'bg-[#1E1724] text-rose-300 border-rose-900/40',
+    purple: 'bg-[#151E36] text-[#F3F4F6] border-[#1C2640]'
   };
 
   const sizes = {
-    xs: 'text-[10px] px-1.5 py-0.5',
-    sm: 'text-xs px-2.5 py-0.5',
-    md: 'text-sm px-3 py-1'
+    xs: 'text-[10px] px-2 py-0.5 font-medium tracking-tight',
+    sm: 'text-xs px-2.5 py-0.5 font-medium tracking-tight',
+    md: 'text-sm px-3 py-1 font-medium tracking-tight'
   };
 
   return (
     <span
-      className={`inline-flex items-center font-medium rounded-full border ${variants[variant] || variants.default} ${
+      className={`inline-flex items-center rounded-full border ${variants[variant] || variants.default} ${
         sizes[size]
       } ${className}`}
     >
