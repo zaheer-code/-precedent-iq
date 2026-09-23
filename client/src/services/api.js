@@ -1,10 +1,26 @@
 import axios from 'axios';
 
-// Normalize VITE_API_URL: handles undefined, trailing slashes, and optional /api suffix
-const rawApiUrl = (import.meta.env.VITE_API_URL || '').trim().replace(/\/+$/, '');
-const API_BASE = rawApiUrl 
-  ? (rawApiUrl.endsWith('/api') ? rawApiUrl : `${rawApiUrl}/api`) 
-  : '/api';
+// Resolve API base URL with multi-layer resilience:
+// 1. Explicit build-time environment variable: VITE_API_URL
+// 2. Production browser runtime fallback: points directly to Render API when hosted remotely
+// 3. Local development fallback: '/api' (proxied by Vite to http://localhost:5000)
+function getApiBaseUrl() {
+  const envUrl = (import.meta.env.VITE_API_URL || '').trim().replace(/\/+$/, '');
+  if (envUrl) {
+    return envUrl.endsWith('/api') ? envUrl : `${envUrl}/api`;
+  }
+  
+  if (typeof window !== 'undefined' && window.location) {
+    const hostname = window.location.hostname;
+    if (hostname && hostname !== 'localhost' && hostname !== '127.0.0.1') {
+      return 'https://precedentiq-api.onrender.com/api';
+    }
+  }
+
+  return '/api';
+}
+
+const API_BASE = getApiBaseUrl();
 
 const api = axios.create({
   baseURL: API_BASE,
